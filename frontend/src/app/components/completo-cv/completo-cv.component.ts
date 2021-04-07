@@ -1,7 +1,7 @@
 import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
 import { LibrosService } from '../../services/libros.service';
 // import jsPDF from 'jspdf';
-import { jsPDF } from "jspdf";
+// import { jsPDF } from "jspdf";
 
 @Component({
   selector: 'app-completo-cv',
@@ -23,18 +23,18 @@ export class CompletoCvComponent implements OnInit {
     )
   }
 
-  public downloadPDF() {
-    const DATA = this.content.nativeElement;
-  const doc: jsPDF = new jsPDF("p", "mm", "a4");
-  doc.html(DATA, {
-     callback: (doc) => {
-       doc.output("dataurlnewwindow");
-     }
-  });
+  // public downloadPDF() {
+  //   const DATA = this.content.nativeElement;
+  // const doc: jsPDF = new jsPDF("p", "mm", "a4");
+  // doc.html(DATA, {
+  //    callback: (doc) => {
+  //      doc.output("dataurlnewwindow");
+  //    }
+  // });
 
-    doc.save('test.pdf');
-  }
-  title = 'htmltopdf';
+  //   doc.save('test.pdf');
+  // }
+  // title = 'htmltopdf';
 
 
 }

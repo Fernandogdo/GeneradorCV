@@ -1,14 +1,22 @@
+
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class ArticulosService {
 
-  constructor() { }
+  URL_ARTICULOS= 'https://sica.utpl.edu.ec/ws/api/articulos/'
+
+
+  constructor(
+    private http: HttpClient
+  ) { }
 
 
   getArticulos(){
-    
+    return this.http.get(this.URL_ARTICULOS);
   }
 }

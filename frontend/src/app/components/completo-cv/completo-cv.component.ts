@@ -1,5 +1,8 @@
+import { ProyectosService } from './../../services/proyectos.service';
+
 import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
 import { LibrosService } from '../../services/libros.service';
+import { ArticulosService } from './../../services/articulos.service';
 
 // import { jsPDF } from "jspdf";
 // import jsPDF from 'jspdf';
@@ -304,16 +307,39 @@ export class CompletoCvComponent implements OnInit {
   ];
 
   constructor(
-    private librosService: LibrosService
+    private librosService: LibrosService,
+    private articulosService: ArticulosService,
+    private proyectosService: ProyectosService
   ) { }
 
   ngOnInit() {
+    this.getLibros()
+    this.getArticulos()
+    this.getProyectos()
+  }
+
+
+  getLibros(){
     this.librosService.getLibros().subscribe(
+      res => console.log(res),
+      err => console.log(err)
+    )
+
+  }
+
+  getArticulos(){
+    this.articulosService.getArticulos().subscribe(
       res => console.log(res),
       err => console.log(err)
     )
   }
 
+  getProyectos(){
+    this.proyectosService.getProyectos().subscribe(
+      res => console.log(res),
+      err => console.log(err)
+    )
+  }
 
   // public openPDF(): void {
   //   let DATA = document.getElementById('htmlData');
